@@ -5,34 +5,28 @@ bool corrected_first_symbol()
 }
 int corrected_part(int have_at, string part)
 {
-    if ((bool)have_at)
-    
-    for (int i = have_at; i < ((bool)have_at?have_at+63:64); i++)
+
+    for (int i = have_at; i < ((bool)have_at ? have_at + 63 : 64); i++)
     {
-        if (part[i] == '.' && i - 1 == -1 ? true : part[i - 1] == '.')
+        if (part[i] == '.' && i < 1 ? true : part[i - 1] == '.') // checking for the first '.' and for two '.' in a row.
         {
             return false;
         }
-        else if (part[i] >= 'a' && part[i] <= 'z' || part[i] >= 'A' && part[i] <= 'Z')
+        else if (part[i] >= 'a' && part[i] <= 'z' || part[i] >= 'A' && part[i] <= 'Z') // checking for a character from the alphabet.
         {
-            break;
+            // break;
         }
-        else if (!(bool)have_at)
+        else if (!(bool)have_at) // c
         {
-
-            if (part[i] == '@')
+            if (part[i] == '@' && i > 0)
             {
-
-                i>0?({return true;}):({return false;});
+                return true;
             }
-        }
-        else
-        {
-            if (part[i] == '@')
+            else if (part[i] == '@')
             {
                 return false;
             }
-            else
+            else if (true)
             {
                 string correctedSymbol = "!#$%&'*+-/=?^_`{|}~";
                 for (int j = 0; j < correctedSymbol.length(); j++)
@@ -47,7 +41,11 @@ int corrected_part(int have_at, string part)
                     }
                 }
             }
+            else
+            {
+                return false;
+            }
         }
+        return false;
     }
-    return false;
 }
