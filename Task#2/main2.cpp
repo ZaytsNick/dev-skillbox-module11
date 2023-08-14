@@ -6,8 +6,8 @@ bool corrected_first_symbol()
 int corrected_part(int have_at, string part)
 {
     if ((bool)have_at)
-    string correctedSymbol = "!#$%&'*+-/=?^_`{|}~";
-    for (int i = 0; i < 64; i++)
+    
+    for (int i = have_at; i < ((bool)have_at?have_at+63:64); i++)
     {
         if (part[i] == '.' && i - 1 == -1 ? true : part[i - 1] == '.')
         {
@@ -34,6 +34,7 @@ int corrected_part(int have_at, string part)
             }
             else
             {
+                string correctedSymbol = "!#$%&'*+-/=?^_`{|}~";
                 for (int j = 0; j < correctedSymbol.length(); j++)
                 {
                     if (part[i] == correctedSymbol[j])
