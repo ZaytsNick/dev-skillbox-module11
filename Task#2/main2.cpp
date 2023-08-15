@@ -1,6 +1,38 @@
 #include <iostream>
 using namespace std;
 
+int corrected_1(string symbol, int number)
+{
+    if (symbol[number] == '@' && number > 0 && symbol[number - 1] == '.')
+    {
+        return false;
+    }
+    else if (symbol[number] == '@')
+    {
+        return number;
+    }
+    else if (true)
+    {
+        string correctedSymbol = "!#$%&'*+-/=?^_`{|}~";
+        for (int j = 0; j < correctedSymbol.length(); j++)
+        {
+            if (symbol[number] == correctedSymbol[j])
+            {
+                break;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+    else
+    {
+        return false;
+    }
+    return false;
+}
+
 int corrected_part(int have_at, string part)
 {
     if (part[part.length() - 1] == '.')
@@ -9,13 +41,13 @@ int corrected_part(int have_at, string part)
     }
     else
     {
-        for (int i = have_at + 1 * ((bool)have_at); i < part.length(); i++)
+        for (int i = have_at + ((bool)have_at); i < part.length(); i++)
         {
             if (i >= ((bool)have_at ? have_at + 63 : 64))
             {
                 return false;
             }
-            if (part[i] == '.' && (i < 1 ? true : part[i - 1] == '.')) // checking for the first '.' and for two '.' in a row.
+            if (part[i] == '.' && (i < (have_at + 1 + ((bool)have_at)) ? true : part[i - 1] == '.')) // checking for the first '.' and for two '.' in a row.
             {
                 return false;
             }
@@ -27,35 +59,9 @@ int corrected_part(int have_at, string part)
             {
                 true;
             }
-            else if (!(bool)have_at) //
+            else if (!(bool)have_at)
             {
-                if (part[i] == '@' && i > 0 && part[i - 1] == '.')
-                {
-                    return false;
-                }
-                else if (part[i] == '@')
-                {
-                    return i;
-                }
-                else if (true)
-                {
-                    string correctedSymbol = "!#$%&'*+-/=?^_`{|}~";
-                    for (int j = 0; j < correctedSymbol.length(); j++)
-                    {
-                        if (part[i] == correctedSymbol[j])
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
-                }
-                else
-                {
-                    return false;
-                }
+                return corrected_1(part, i);
             }
             else
             {
