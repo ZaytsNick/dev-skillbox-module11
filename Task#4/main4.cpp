@@ -60,9 +60,12 @@ bool correct_symbol(string s1, string s2, string s3)
                 (s2[i] == 'X' || s2[i] == 'O' || s2[i] == '.') &&
                 (s3[i] == 'X' || s3[i] == 'O' || s3[i] == '.'))
             {
-                true;
+                return true;
             }
-            else return false;
+            else
+            {
+                return false;
+            }
         }
     }
 }
@@ -70,7 +73,7 @@ bool correct_symbol(string s1, string s2, string s3)
 int main()
 {
     string str1, str2, str3;
-    cout << "Enter battlefield:"<<endl;
+    cout << "Enter battlefield:" << endl;
     cin >> str1 >> str2 >> str3;
     if (!correct_symbol(str1, str2, str3))
     {
@@ -78,6 +81,6 @@ int main()
     }
     else
     {
-        cout <<"Answer: "<< who_won(str1, str2, str3);
+        cout << "Answer: " << who_won(str1, str2, str3);
     }
 }

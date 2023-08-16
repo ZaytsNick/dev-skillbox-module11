@@ -2,13 +2,11 @@
 using namespace std;
 char encrypt_symbol(char symbol, int shiftS, char alphabet)
 {
-  return (symbol % alphabet + shiftS) % 26 + (shiftS > 0 ? alphabet : alphabet + 26);
+  return (symbol - alphabet + shiftS) % 26 + ((symbol - alphabet + shiftS) >= 0 ? alphabet : alphabet + 26);
 }
 
 string encrypt_caesar(string textEC, int shiftEC)
 {
-  // task
-
   for (int i = 0; i < textEC.length(); i++)
   {
     if (textEC[i] >= 'a' && textEC[i] <= 'z')
