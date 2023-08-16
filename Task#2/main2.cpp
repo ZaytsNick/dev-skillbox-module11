@@ -20,10 +20,6 @@ int corrected_1(string symbol, int number)
             {
                 break;
             }
-            else
-            {
-                return false;
-            }
         }
     }
     else
@@ -51,7 +47,7 @@ int corrected_part(int have_at, string part)
             {
                 return false;
             }
-            else if (part[i] == '.')
+            else if (part[i] == '.' || part[i] =='-')
             {
                 true;
             }
