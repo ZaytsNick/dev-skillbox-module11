@@ -24,10 +24,10 @@ string Valid_ip(string ip)
     if (ip.length() > 15 || ip[ip.length() - 1] == '.' || ip[0] == '.')
         return "Invalid";
     string ip_part;
-    int dot(0);
+    int dot(0), quantityDot(0);
     for (int i = 0; i < ip.length(); i++)
     {
-        if (ip[i] == '.' && ip[i - 1] == '.' || ip[i] < '0' && ip[i]>'9')
+        if (ip[i] == '.' && ip[i - 1] == '.' || ip[i] < '0' && ip[i] > '9')
         {
             return "Invalid";
         }
@@ -38,11 +38,19 @@ string Valid_ip(string ip)
             {
                 part += ip[dot];
             }
-            if (ip[i] == '.'?(!Valid_part(part)):(!Valid_part(part+'.')))
+            quantityDot++;
+            if (ip[i] == '.' ? (!Valid_part(part)) : (!Valid_part(part + '.')))
                 return "Invalid";
         }
     }
-    return "Valid";
+    if (quantityDot == 3)
+    {
+        return "1Valid";
+    }
+    else
+    {
+        return "Invalid";
+    }
 }
 
 int main()
