@@ -46,7 +46,7 @@ int corrected_part(int have_at, string part)
             {
                 true;
             }
-            else if (part[i] >= 'a' && part[i] <= 'z' || part[i] >= 'A' && part[i] <= 'Z') // checking for a character from the alphabet.
+            else if (part[i] >= 'a' && part[i] <= 'z' || part[i] >= 'A' && part[i] <= 'Z'|| part[i] >= '0' && part[i] <= '9') // checking for a character from the alphabet.
             {
                 true; //
             }
