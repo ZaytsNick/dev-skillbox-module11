@@ -77,15 +77,8 @@ int main()
     std::string e_mail;
     cout << "Enter E-mail: ";
     std::cin >> e_mail;
-
-    // if (corrected_part(integerIndex, e_mail))
-    // {
-    //     integerIndex = corrected_part(integerIndex, e_mail);
     if (corrected_part(integerIndex, e_mail))
         cout << "Yes" << endl;
     else
         cout << "No" << endl;
-    // }
-    // else
-    //     cout << "No" << endl;
 }

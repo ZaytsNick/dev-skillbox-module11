@@ -2,9 +2,6 @@
 using namespace std;
 char encrypt_symbol(char symbol, int shiftS, char alphabet)
 {
-  int a = (symbol - alphabet + shiftS) % 26;
-  int b =(symbol - alphabet + shiftS) % 26 + ((symbol - alphabet + shiftS)% 26 >= 0 ? alphabet : alphabet + 26);
-
   return (symbol - alphabet + shiftS) % 26 + ((symbol - alphabet + shiftS)% 26 >= 0 ? alphabet : alphabet + 26);
 }
 
