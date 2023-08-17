@@ -18,15 +18,10 @@ int corrected_1(string symbol, int number)
         {
             if (symbol[number] == correctedSymbol[j])
             {
-                break;
+                return 0;
             }
         }
     }
-    else
-    {
-        return false;
-    }
-    return false;
 }
 
 int corrected_part(int have_at, string part)
@@ -47,24 +42,32 @@ int corrected_part(int have_at, string part)
             {
                 return false;
             }
-            else if (part[i] == '.' || part[i] =='-')
+            else if (part[i] == '.' || part[i] == '-')
             {
                 true;
             }
             else if (part[i] >= 'a' && part[i] <= 'z' || part[i] >= 'A' && part[i] <= 'Z') // checking for a character from the alphabet.
             {
-                true;
+                true; //
             }
-            else if (!(bool)have_at)
+
+            else if (!have_at)
             {
-                return corrected_1(part, i);
+                int a = corrected_1(part, i);
+                if (a)
+                    have_at = a;
+                else if (a == 0)
+                    true;
+                else
+                    return false;
             }
             else
             {
                 return false;
             }
         }
-        return true;
+        if (have_at)
+            return true;
     }
 }
 
@@ -75,14 +78,14 @@ int main()
     cout << "Enter E-mail: ";
     std::cin >> e_mail;
 
+    // if (corrected_part(integerIndex, e_mail))
+    // {
+    //     integerIndex = corrected_part(integerIndex, e_mail);
     if (corrected_part(integerIndex, e_mail))
-    {
-        integerIndex = corrected_part(integerIndex, e_mail);
-        if (corrected_part(integerIndex, e_mail))
-            cout << "Yes" << endl;
-        else
-            cout << "No" << endl;
-    }
+        cout << "Yes" << endl;
     else
         cout << "No" << endl;
+    // }
+    // else
+    //     cout << "No" << endl;
 }
