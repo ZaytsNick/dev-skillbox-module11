@@ -38,7 +38,7 @@ string Valid_ip(string ip)
             {
                 part += ip[dot];
             }
-            if (!Valid_part(part))
+            if (ip[i] == '.'?(!Valid_part(part)):(!Valid_part(part+'.')))
                 return "Invalid";
         }
     }
