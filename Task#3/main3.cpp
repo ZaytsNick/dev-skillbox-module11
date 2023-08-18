@@ -38,14 +38,14 @@ string Valid_ip(string ip)
             {
                 part += ip[dot];
             }
-            quantityDot++;
+            ip[i] == '.' ?quantityDot++:0;
             if (ip[i] == '.' ? (!Valid_part(part)) : (!Valid_part(part + '.')))
                 return "Invalid";
         }
     }
     if (quantityDot == 3)
     {
-        return "1Valid";
+        return "Valid";
     }
     else
     {
