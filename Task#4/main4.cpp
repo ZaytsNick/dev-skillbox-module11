@@ -52,22 +52,21 @@ string who_won(string s1, string s2, string s3)
 bool correct_symbol(string s1, string s2, string s3)
 {
     // #1 потому что допускаются только символы X, O и точка, а цифра 0 не является допустимым символом
+
+    for (int i = 0; i < 3; i++)
     {
-        for (int i = 0; i < 3; i++)
+        if (
+            (s1[i] == 'X' || s1[i] == 'O' || s1[i] == '.') &&
+            (s2[i] == 'X' || s2[i] == 'O' || s2[i] == '.') &&
+            (s3[i] == 'X' || s3[i] == 'O' || s3[i] == '.'))
         {
-            if (
-                (s1[i] == 'X' || s1[i] == 'O' || s1[i] == '.') &&
-                (s2[i] == 'X' || s2[i] == 'O' || s2[i] == '.') &&
-                (s3[i] == 'X' || s3[i] == 'O' || s3[i] == '.'))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+           true;
         }
-    }
+        else
+        {
+            return false;
+        }
+    } return true;
 }
 
 int main()
